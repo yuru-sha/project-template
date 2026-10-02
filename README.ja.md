@@ -70,10 +70,10 @@ bash scripts/create-project.sh yuru-sha/my-project --private
 
 必要環境は、認証済みの GitHub CLI (`gh`) と Python 3 です。
 
-ラベル定義は [`.github/labels.json`](.github/labels.json) で一元管理します。同期処理は冪等なので、既存リポジトリにも適用できます。
+ラベル定義の正本は [`yuru-sha/project-template/.github/labels.json`](.github/labels.json) のみに置きます。同期処理は冪等なので、既存リポジトリにも適用できます。
 
 ```sh
 python3 scripts/sync-labels.py --repo yuru-sha/existing-project
 ```
 
-同梱のGitHub Actions Workflowにより、各リポジトリ内でラベル定義や同期ロジックを変更した場合も再同期できます。
+同梱のGitHub Actions Workflowは毎日 `yuru-sha/project-template` の正本ラベル定義を取得して同期し、手動実行も可能です。これにより各リポジトリ側でラベル定義を個別管理する必要はありません。
