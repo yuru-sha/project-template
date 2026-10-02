@@ -45,3 +45,35 @@ After creating a repository from this template:
 6. Review `.github/release.yml` against the repository's actual labels before relying on generated release categories.
 
 The shared Issue and Pull Request defaults are maintained separately in [`yuru-sha/.github`](https://github.com/yuru-sha/.github).
+
+
+## One-command project creation
+
+For a fully initialized repository, prefer the wrapper instead of creating the repository manually:
+
+```sh
+bash scripts/create-project.sh yuru-sha/my-project
+```
+
+Private repository:
+
+```sh
+bash scripts/create-project.sh yuru-sha/my-project --private
+```
+
+The wrapper:
+
+1. creates the repository from `yuru-sha/project-template`;
+2. preserves GitHub's default labels;
+3. creates or updates the shared non-default labels;
+4. creates the reserved `orca:*` lifecycle labels.
+
+Requirements: authenticated GitHub CLI (`gh`) and Python 3.
+
+Label definitions live in [`.github/labels.json`](.github/labels.json). The synchronization script is idempotent, so it can also be used for an existing repository:
+
+```sh
+python3 scripts/sync-labels.py --repo yuru-sha/existing-project
+```
+
+The included GitHub Actions workflow keeps the labels in sync when the label definition or synchronization logic changes within a repository.
