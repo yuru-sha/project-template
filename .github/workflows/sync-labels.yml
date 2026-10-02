@@ -20,23 +20,20 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Fetch canonical shared labels
+      - name: Fetch canonical label sync assets
         run: |
           python3 - <<'PY'
           from urllib.request import urlretrieve
 
-          urlretrieve(
-              "https://raw.githubusercontent.com/yuru-sha/project-template/main/.github/labels.json",
-              "/tmp/shared-labels.json",
-          )
+          base = "https://raw.githubusercontent.com/yuru-sha/project-template/main"
+          urlretrieve(f"{base}/.github/labels.json", "/tmp/shared-labels.json")
+          urlretrieve(f"{base}/scripts/sync-labels.py", "/tmp/sync-labels.py")
           PY
 
       - name: Sync labels
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          python3 scripts/sync-labels.py
+          python3 /tmp/sync-labels.py
           --repo "${{ github.repository }}"
           --labels /tmp/shared-labels.json
