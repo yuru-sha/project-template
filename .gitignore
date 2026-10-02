@@ -1,0 +1,25 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor / temporary files
+*.swp
+*.swo
+*~
+.idea/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.*.example
+!.env.*.sample
+
+# Logs and temporary output
+*.log
+tmp/
+temp/
+
+# Add language-, framework-, and tool-specific generated artifacts for the
+# project. Do not add broad rules that can hide source or shared configuration.
