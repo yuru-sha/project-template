@@ -31,3 +31,17 @@
 ## ライセンス
 
 MIT License。[LICENSE](LICENSE) を参照してください。
+
+
+## 新規プロジェクトの開始
+
+このテンプレートからリポジトリを作成したら、次の順で初期化します。
+
+1. `README.md` と `README.ja.md` のプロジェクト名・説明を置き換える。
+2. `AGENTS.md` に実際のセットアップ・検証コマンドを記載する。
+3. [`templates/`](templates/) から使用言語に必要な差分だけを適用する。
+4. `.gitignore` は実際に生成される成果物だけを追加する。
+5. CI / Workflow はプロジェクト固有として各リポジトリで管理する。
+6. GitHubの自動Release Notesを使う前に、`.github/release.yml` と実際のラベル体系が一致しているか確認する。
+
+Issue / Pull Request の共通デフォルトは [`yuru-sha/.github`](https://github.com/yuru-sha/.github) で管理します。
