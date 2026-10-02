@@ -47,6 +47,11 @@ Put other long-form documentation under `docs/` unless a root-level location is 
 
 Keep links valid after moving or renaming documentation.
 
+## Branch And Pull Request Workflow
+
+- Do not edit, commit, or push directly to `main`. Make changes on a feature branch and merge them through a pull request.
+- Direct work on `main` is allowed only when the user explicitly authorizes it.
+
 ## Pull requests
 
 A completed change should make it clear:
