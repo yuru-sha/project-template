@@ -70,10 +70,10 @@ The wrapper:
 
 Requirements: authenticated GitHub CLI (`gh`) and Python 3.
 
-Label definitions live in [`.github/labels.json`](.github/labels.json). The synchronization script is idempotent, so it can also be used for an existing repository:
+The canonical label definitions live only in [`yuru-sha/project-template/.github/labels.json`](.github/labels.json). The synchronization script is idempotent, so it can also be used for an existing repository:
 
 ```sh
 python3 scripts/sync-labels.py --repo yuru-sha/existing-project
 ```
 
-The included GitHub Actions workflow keeps the labels in sync when the label definition or synchronization logic changes within a repository.
+The included GitHub Actions workflow fetches the canonical label definition from `yuru-sha/project-template` every day and can also be run manually. This keeps copied repositories aligned without editing their local label definition.
