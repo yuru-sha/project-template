@@ -45,3 +45,35 @@ MIT License。[LICENSE](LICENSE) を参照してください。
 6. GitHubの自動Release Notesを使う前に、`.github/release.yml` と実際のラベル体系が一致しているか確認する。
 
 Issue / Pull Request の共通デフォルトは [`yuru-sha/.github`](https://github.com/yuru-sha/.github) で管理します。
+
+
+## 1コマンドでのプロジェクト作成
+
+新規リポジトリは、GitHub画面から手動で作成するより、次のラッパーを使う運用を推奨します。
+
+```sh
+bash scripts/create-project.sh yuru-sha/my-project
+```
+
+Privateリポジトリの場合:
+
+```sh
+bash scripts/create-project.sh yuru-sha/my-project --private
+```
+
+このスクリプトは以下を自動で行います。
+
+1. `yuru-sha/project-template` からリポジトリを作成
+2. GitHub規定ラベルはそのまま維持
+3. 共通追加ラベルを作成・更新
+4. `orca:*` ライフサイクルラベルを作成・更新
+
+必要環境は、認証済みの GitHub CLI (`gh`) と Python 3 です。
+
+ラベル定義は [`.github/labels.json`](.github/labels.json) で一元管理します。同期処理は冪等なので、既存リポジトリにも適用できます。
+
+```sh
+python3 scripts/sync-labels.py --repo yuru-sha/existing-project
+```
+
+同梱のGitHub Actions Workflowにより、各リポジトリ内でラベル定義や同期ロジックを変更した場合も再同期できます。
