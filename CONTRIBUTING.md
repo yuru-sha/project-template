@@ -7,6 +7,8 @@ Thank you for contributing.
 - Search existing Issues and Pull Requests to avoid duplicate work.
 - For non-trivial work, use an Issue to define the problem and acceptance criteria.
 - Read `AGENTS.md`, the README, and relevant files under `docs/`.
+- Keep changes focused on one Issue or clearly related outcome.
+- Avoid unrelated cleanup and unnecessary dependencies.
 
 ## Development
 
@@ -15,6 +17,8 @@ Use the repository's canonical commands. Keep changes focused and avoid introduc
 Add or update tests when behavior changes. Update documentation when interfaces, workflows, configuration, or user-visible behavior changes.
 
 ## Pull requests
+
+Open changes from a feature branch rather than working directly on `main`.
 
 Pull Requests should:
 
@@ -56,4 +60,3 @@ Use these types as the default vocabulary:
 Use a scope when it adds useful context, for example `fix(forecast): handle missing observations`.
 
 Mark a breaking change with `!` after the type or scope, or with a `BREAKING CHANGE:` footer.
-
