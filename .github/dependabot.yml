@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # GitHub Actions are used by this template and every derived repository.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+
+  # Add an entry for each package manager actually used in the new project.
+  # Examples:
+  # - package-ecosystem: "npm"
+  #   directory: "/frontend"
+  #   schedule:
+  #     interval: "weekly"
+  # - package-ecosystem: "pip"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
